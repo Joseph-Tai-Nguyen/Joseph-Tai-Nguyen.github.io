@@ -113,7 +113,7 @@
       width: 100%;      /* ✅ force full width */
     }
     /* Show hamburger always on mobile */
-    .topbar{display:flex}
+    .topbar{display: flex !important;   /* ✅ ensure visible */}
   }
   @media (max-width:420px){
     .profile h1{font-size:0.95rem}
