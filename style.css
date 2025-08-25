@@ -7,6 +7,7 @@
     --bg: #f4f6f8;
     --card: #ffffff;
     --max-width: 1100px;
+    --sidebar-h: 100vh;
     --sidebar-w: 300px;
   }
   
@@ -15,18 +16,27 @@
   
   /* Layout */
   .layout{display:flex;min-height:100vh;max-width:1500px;margin:0 auto}
+  /* Make sidebar full height */
   .sidebar{
+    position: fixed;       /* Stay in place */
+    top: 0;
+    left: 0;
+    height:var(--sidebar-h);         /* Full viewport height */
     width:var(--sidebar-w);
     background: linear-gradient(180deg,var(--blue-900),var(--blue-700));
     color:#fff;
-    padding:28px 20px;
-    flex-shrink:0;
     display:flex;
     flex-direction:column;
-    justify-content:flex-start; /* instead of space-between */
-    height: 100vh; /* full height */
+    justify-content:space-between; /* instead of flex-start */
+    padding:28px 20px;
+    /* flex-shrink:0; */
   }
-  .main{flex:1;padding:20px 24px;overflow:auto}
+  .main{
+    margin-left:var(--sidebar-w);   /* same as sidebar width */
+    padding:20px 24px;
+    flex:1;
+    overflow:auto
+  }
   
   /* Sidebar content */
   .profile h1{margin:0 0 8px;font-size:1.05rem;line-height:1.2}
@@ -37,7 +47,21 @@
   .social a{color:#fff;margin-right:12px;font-size:1.2rem;text-decoration:none}
   .social a:hover {transform: scale(1.2);}
   .btn.resume{display:inline-block;margin-top:8px;background:var(--accent);color:#000;padding:10px 12px;border-radius:8px;text-decoration:none;font-weight:600}
-  .sidebar-footer{text-align:center;font-size:0.85rem;color:rgba(255,255,255,0.85);margin-top:18px}
+  .profile-intro {
+    margin-top: 15px;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: #e0e0e0;  /* light gray text for dark sidebar */
+  }
+  .profile-intro p {
+    margin: 5px 0;
+  }
+  .sidebar .contact-info {margin-top: 30px;font-size: 0.9em;}
+  .sidebar .contact-info h2 {font-size: 1.2em;margin-bottom: 10px;}
+  .sidebar .contact-info p {margin: 5px 0;}
+  .sidebar .contact-info a {color: #ffffff; /* or your sidebar text color */text-decoration: none;}
+  .sidebar .contact-info a:hover {text-decoration: underline;}
+  .sidebar-footer{text-align:left;font-size:0.85rem;color:rgba(255,255,255,0.85);margin-top:18px}
   .profile-section{margin-bottom: 20px;}
   
   /* Nav */
